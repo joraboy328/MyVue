@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>demo</title>
+    </head>
+<body>
+        <div id="app">
+                <input type="text" v-model="myname" placeholder="input your name">
+                <input type="button" value="click me" @click=f1()>
+                <h1>你好,{{myname}}</h1>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        var mydata = {
+             a:1
+            }
+            var vm2 = new Vue({
+
+                data:mydata
+            })
+            var vm = new Vue({
+                //el:'#app',
+                el:document.getElementById('app'),
+                data: {
+                    myname: 'leon'
+                },
+
+                mounted:function() {
+                    console.log('mounted....')
+                    console.log('mounted event:myname= ' + this.myname)
+                    console.log(this.$el);
+                },
+
+                created:function() {
+                    console.log('created.....')
+                    console.log('created event:myname= ' + this.myname)
+                    console.log(this.$el)
+                },
+
+                beforeDestroy:function() {
+                    console.log('Destroy...')
+                },
+               
+                methods: {
+                    f1:function() {
+                        alert(this.myname)
+                    },
+                },
+            })
+
+            //console.log('log:' + vm.myname);
+            console.log('mydata.data:' + mydata.a);
+            console.log('vm2.data:' + vm2.a);
+            mydata.a = 2;
+            console.log('after change ' + vm2.a);
+            vm2.a=3;
+            console.log('after change ' + mydata.a)
+            
+
+            //mydata.data = 2;
+            //cosnole.log('after mydata chage,then vm2.data:' + vm2.data);
+
+        </script>
+
+        
+        
+</body>
+
+
+</html>
