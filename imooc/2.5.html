@@ -21,6 +21,23 @@
       <div v-show="count == 1">
         show:{{count}}
       </div>
+<!--
+      <div v-for="item in list">
+        {{item.name + item.age}}
+      </div>
+-->
+<div v-for="user in list">
+    <!--<div v-show="user.age > 30" v-bind:style="styleMsg">-->
+        <div v-show="user.age<30" :class="['active','add','more',{'another':user.age<20}]" :style="styleMsg">
+        {{user.name}}
+        </div>
+  
+  <!--  <div v-else>
+        {{user.age}}
+    </div>
+-->
+</div>
+
   </div>
     
 <script>
@@ -29,7 +46,20 @@
        el:'#app',
        
        data:{
-            count:100
+            count:100,
+            styleMsg:{
+                color:'red',
+                textShadow:'0 0 5px #232323'
+            },
+            //list:[1,2,3,4,5]
+            list:[{
+                name:'liugang',
+                age:18
+            },
+            { name:'lily',
+              age:20},
+            { name:'tom',
+              age:50}]
         },
         methods:{
            
