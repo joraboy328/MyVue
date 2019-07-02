@@ -14,7 +14,7 @@
 
 <body>
     <div id="app">
-        <div class="bg">
+        <div class="bg" v-bind:id="bg1">
             Hello World
             {{msg}}
         </div>
@@ -23,6 +23,13 @@
     <div class="bg">
         {{msg}}
     </div>
+    {{(count + 1) * 10}}
+    <div v-html="template">
+
+    </div>
+    <a v-bind:href="url">baidu</a>
+    <a :href="url1">慕课网</a>
+    <button type="button" v-on:click="submit">click</button>
   </div>
     <!--<div class="bg" id="app">hello world!!
         {{msg}}
@@ -31,9 +38,21 @@
     new Vue({
 
       // el:'.bg',
+       
        el:'#app',
+       
        data:{
-            msg:'Hello World'
+            bg1:'app-bind',
+            msg:'Hello World',
+            count:0,
+            template:'<div class="bg">hello template</div>',
+            url:"http://www.baidu.com",
+            url1:"http://www.imooc.com"
+        },
+        methods:{
+            submit:function() {
+                this.count++
+            }
         }
     })
 </script>
