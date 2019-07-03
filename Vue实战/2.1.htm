@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Vue实战2.1</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="myapp">
+         <input type="text" v-model="name" placeholde="你的名字">
+         <H1>你好，{{name}}</H1>
+       </div> 
+
+       <div id="app1">
+           {{date}}
+       </div>
+    </body>
+    <script>
+        var myData = {
+            a:1
+        }
+        var app = new Vue({
+            el:"#app1",
+            //el:document.getElementById('app'),
+            /*
+            data:{
+             name:'LIUGANG'
+            },*/
+            //data:myData,
+            data:{
+                date:new Date()
+            },
+            mounted:function() {
+                
+                console.log('mounted ' + this.$el);
+            },
+
+            created:function() {
+                console.log('created ' + this.a);
+            },
+
+            beforeDestroy:function(){
+                alert('hello');
+                console.log('Destroy');
+            },
+
+          
+
+            methods:{
+               
+            }
+            
+        })
+        console.log(app.a);
+        app.a = 2
+        console.log(myData.a);
+
+        myData.a = 3
+        console.log(app.a);
+
+    </script>
+</html>

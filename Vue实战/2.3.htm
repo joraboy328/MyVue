@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Vue实战2.3</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         
+       </div> 
+    </body>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                show:true
+            },
+           
+            methods:{
+
+                init:function(text) {
+                console.log(text);
+            },
+            mounted:function() {
+                this.init('初始化时调用');
+            }
+               
+            }
+        })
+
+        app.init('通过外部调用')
+    </script>
+</html>

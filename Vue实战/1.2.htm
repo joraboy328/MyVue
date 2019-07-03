@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Vue实战 1.2</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+           <ul>
+               <li v-for="book in books">
+                   {{book.name}}
+               </li>
+           </ul>
+       </div>
+        
+    </body>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+               books:[
+                   {name:'Java book'},
+                   {name:'Eclipse book'},
+                   {name:'Vue book'}
+               ]
+            },
+            methods:{
+               
+            }
+        })
+    </script>
+</html>

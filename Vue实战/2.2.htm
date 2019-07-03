@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>Vue实战2.2</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         {{date | formatDate}}
+           <div>
+            <span v-html="link"></span>
+            
+           </div>
+           <div>
+               <span v-pre>{{这里内容不被编译}}</span>
+           </div>
+           <div>
+            number/10 = {{number / 10}}
+           </div>
+           <div>
+            isOK: {{isOK ? 'YES' : 'NO'}}
+           </div>
+           <div>
+            Text:{{text.split(',').reverse().join(',')}}
+           </div>
+           <div v-if="isOK">
+               Show Context
+           </div>
+           <!--<button v-on:click="handleClose">HIDDEN</button>-->
+           <button v-on:click="isOK = false">HIDDEN</button>
+           <div>
+            <img v-bind:src="imgUrl">
+            </div>
+            <div>
+                <a v-bind:href="url">LINK2</a>
+            </div>
+      
+       
+    </body>
+    <script>
+     var padDate = function(value) {
+        return value < 10 ? '0' + value : value;
+     }
+
+
+     var vueapp = new Vue({
+            el:"#app",
+            data:{
+             
+                date:new Date(),
+                link:'<a href="#">link</a>',
+                number:100,
+                isOK:true,
+                text:'123,456',
+                url:'http://www.shou.com',
+                imgUrl:'http://www.dic-global.com/common/images/corp_logo_tag.png'
+
+            },
+            mounted:function() {
+                var _this = this;
+                this.timer = setInterval(function(){
+                    _this.date = new Date();
+                },1000);
+            },
+
+            beforeDestroy:function() {
+                if (this.timer) {
+                    clearInterval(this.timer);
+                }
+            },
+            methods:{
+               handleClose:function() {
+                 //  this.isOK = !this.isOK;
+                 this.close();
+               },
+               close:function() {
+                   tihs.isOK = false;
+               }
+            },
+            filters: {
+
+                formatDate:function (value) {
+                    var date = new Date(value);
+                    var year = date.getFullYear();
+                    var month = padDate(date.getMonth() + 1);
+                    var day = padDate(date.getDate());
+                    var hours = padDate(date.getHours());
+                    var minutes = padDate(date.getMinutes());
+                    var seconds = padDate(date.getSeconds());
+
+                    return year + '-' + month + '-' + day + '-' + hours + ':' + minutes + ':' + seconds;
+
+                }
+            }
+        })
+    </script>
+</html>

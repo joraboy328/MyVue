@@ -1,12 +1,25 @@
 <html>
     <head>
-        <title>vue 1.1</title>
-        <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+        <title>Vue实战 1.1</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
     </head>
     <body>
         <div id="app">
-            <button>click me</button>
+            <button v-if="showBtn" v-on:click="handleClick">click me</button>
         </div>
         
     </body>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                showBtn:true
+            },
+            methods:{
+                handleClick:function() {
+                    console.log('Clicked!');
+                }
+            }
+        })
+    </script>
 </html>
