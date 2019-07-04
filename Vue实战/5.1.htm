@@ -4,15 +4,17 @@
         <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
     </head>
     <body>
-       <div id="app">
-         
+       <div id="app" v-cloak>
+          {{message}}
+          <span v-once>{{message}}</span>
+          <div v-once>{{message}}</div>
        </div> 
     </body>
     <script>
         new Vue({
             el:"#app",
             data:{
-             
+              message:'This is a text'
             },
             methods:{
                

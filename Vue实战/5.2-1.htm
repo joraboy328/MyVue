@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战5.2</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+     
+            <p v-show="status === 1">当status为1时显示该行</p>
+            <template v-if="type === 'name' ">
+                <label>Username:</label>
+                <input placeholder="Input username" key="name-input">
+            </template>
+            <template v-else>
+                <lable>Email:</lable>
+                <input placeholder="Input Email" key="mail-input">
+            </template>
+            <button @click="handleToggleClick">Switch Type</button>
+            
+       </div> 
+
+       
+
+    </body>
+    <script>
+        var myapp = new Vue({
+            el:"#app",
+            data:{
+                status:1,
+                type:'name'
+            },
+            methods:{
+               handleToggleClick:function() {
+                   this.type = this.type === 'name' ? 'mail' : 'name';
+               }
+            }
+        })
+    </script>
+</html>
