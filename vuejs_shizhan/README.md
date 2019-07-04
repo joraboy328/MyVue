@@ -19,3 +19,4 @@
 - [P204] `htmlwebpackPlugin` 更改为 `htmlWebpackPlugin` https://github.com/icarusion/vue-book/issues/20 
 - [P271] 代码修改为 `return year + '' + month + '' + day;` https://github.com/icarusion/vue-book/issues/17
 - [P326] 倒数第三行少了个字符 's' https://github.com/icarusion/vue-book/issues/1
+
