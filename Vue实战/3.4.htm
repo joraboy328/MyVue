@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Vue实战3.1</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         {{reversedText()}}
+       </div> 
+    </body>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                Text:'123,456',
+                i:100
+            },
+            methods:{
+                reversedText:function() {
+                    console.log('method.......');
+                    return this.Text.split(',').reverse().join(',');
+                
+                   }
+            },
+            computed: {
+                reversedText:function() {
+                    console.log('computed......');
+                    return this.Text.split(',').reverse().join(',');
+                }
+            }
+        })
+    </script>
+</html>

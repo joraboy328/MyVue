@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Vue实战3.3</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         Name: {{fullname}}
+       </div> 
+    </body>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+             
+                firstName:'liu',
+                lastName:'gang'
+            },
+            computed: {
+                fullname : {
+                    get:function() {
+                        return this.firstName + ' ' + this.lastName;
+                    },
+                    set:function(newValue) {
+                        var names = newValue.split(' ');
+                        this.firstName = names[0];
+                        this.lastName = names[names.length - 1];
+                    }
+                }
+            },
+            methods:{
+               
+            }
+        })
+    </script>
+</html>
