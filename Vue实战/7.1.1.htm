@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战7.1.1</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         <test title-Name="SUMMARY"></test>
+         <test title-Name="SUMMARY1"></test>
+       </div> 
+    </body>
+    <script>
+     Vue.component('test', {
+         props: ['titleName'],
+         template:'<table border=\'1\'><tr><td>{{titleName}}</td></tr></table>',
+         methods: {
+             a() {
+                 window.alert(this.titleName);
+                 console.log(this.titleName);
+             }
+         }
+         
+     });
+
+     var myapp = new Vue({
+         el : '#app'
+     });
+    </script>
+</html>
