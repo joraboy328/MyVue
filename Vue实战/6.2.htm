@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战6.2</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+            <input type="radio" :checked="picked">
+            <label>单选按钮</label>
+
+            <p>
+                <input type="radio" v-model="picked" value="html" id="html">
+                <label for="html">HTML</label>
+                <br>
+
+                <input type="radio" v-model="picked" value="js" id="js">
+                <label for="js">JavaScript</label>
+                <br>
+
+                <input type="radio" v-model="picked" value="css" id="css">
+                <label for="css">CSS</label>
+                <br>
+                <p>You selected: {{ picked }}</p>
+
+            </p>
+
+            <p>
+                <input type="checkbox" v-model="checked" id="checked">
+                <label for="checked">Select status: {{ checked }}</label>
+            </p>
+
+            <p>
+                <input type="checkbox" v-model="checked" value="html" id="html">
+                <label for="html">HTML</label>
+                <br>
+
+                <input type="checkbox" v-model="checked" value="js" id="js">
+                <label for="js">JavaScript</label>
+                <br>
+
+                <input type="checkbox" v-model="checked" value="css" id="css">
+                <label for="css">CSS</label>
+                <br>
+                <P>You Select: {{ checked }}</P>
+            </p>
+                
+
+            <p>
+                    <select v-model="selected">
+                            <option>html</option>
+                            <option value="js">JavaScript</option>
+                            <option>css</option>
+                    </select>
+                    <P>You Select: {{ selected }}</P>
+            </p>
+
+            <p>
+                    <select v-model="selected" multiple>
+                            <option>html</option>
+                            <option value="js">JavaScript</option>
+                            <option>css</option>
+                    </select>
+                    <P>You Select: {{ selected }}</P>
+            </p>
+
+            <p>
+                <select v-model="selected">
+                    <option v-for="option in options">
+                        {{ option.text }}
+                    </option>
+                </select>
+            </p>
+
+            <p>
+                <input type="radio" v-model="picked" :value="value">
+                {{ picked }} , {{ value }}
+            </p>
+
+            <p>
+                <input type="checkbox" v-model="toggle" 
+                :true-value="value1"
+                :false-value="value2">
+                <lable>CheckBox</lable>
+                <p>{{ toggle }}</p>
+                <p>{{ value1 }}</p>
+                <p>{{ value2 }}</p>
+
+            </p>
+
+            <p>
+                <select v-model="selected">
+                    <option :value="{ number:123}">123</option>
+                </select>
+                {{ selected.number }}
+            </p>
+       </div> 
+
+
+    </body>
+    <script>
+        var vueapp = new Vue({
+            el:"#app",
+            data:{
+                toggle:false,
+                value1:'a',
+                value2:'b',
+                picked:'js',
+                value:123,
+                checked:[],
+                selected:'',
+                options:[
+                    {
+                        text:'HTML',
+                        value:'html'
+                    },
+                    {
+                        text:'JavaScript',
+                        value:'js'
+                    },
+                    {
+                        text:'CSS',
+                        value:'css'
+                    }
+
+                ]
+            },
+            methods:{
+               
+            }
+        })
+    </script>
+</html>
