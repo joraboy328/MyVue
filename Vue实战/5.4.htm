@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战5.4</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         <a href="http://www.apple.com" @click="handleClick('禁止打开',$event)">LINK</a>
+         <a href="https://github.com" @click.prevent>Link2</a>
+         <input @keyup.tab="submit">
+         <input @keyup.tab="submit">
+        </div> 
+    </body>
+    <script>
+        var vueapp = new Vue({
+            el:"#app",
+            data:{
+             
+            },
+            methods:{
+               handleClick:function(message,event) {
+                   event.preventDefault();
+                   window.alert(message);
+               },
+               submit:function() {
+                   window.alert('Enter');
+               }
+            }
+        })
+    </script>
+</html>

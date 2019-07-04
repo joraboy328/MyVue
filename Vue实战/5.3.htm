@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战5.3</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+        <!--
+        <ul>
+            <li v-for="book in books">
+                {{book.name}}
+            </li>
+        </ul>
+
+        <ul>
+                <li v-for="book of books">
+                    {{book.name}}
+                </li>
+        </ul>
+
+        <ul>
+                <li v-for="(book,index) in books">
+                    {{index}} - {{book.name}}
+                </li>
+        </ul>
+
+        <template v-for="book in books">
+            <li>Book Name: {{book.name}}</li>
+            <li>Author: {{book.author}}</li>
+        </template>
+-->
+        <template v-for="book in sortedBooks">
+                <li>Book Name: {{book.name}}</li>
+                <li>Author: {{book.author}}</li>
+        </template>
+<!--
+        <span v-for="value in user">{{value}}</span>
+
+        <ul>
+                <li v-for="(value,key,index) in user">
+                    {{index}} - {{key}} : {{value}}
+                </li>
+        </ul>
+
+        <span v-for = "n in 10" >{{n}}</span>
+-->
+    </div> 
+
+       
+
+    </body>
+    <script>
+        var myapp = new Vue({
+            el:"#app",
+            data:{
+                 books:[
+                     {
+                         name:'Java',
+                         author:'LILY'
+                     },
+                     {
+                        name:'Docker',
+                        author:'TOM'
+                     },
+                     {
+                        name:'Activiti',
+                        author:'JACK'
+                     },
+                     {
+                         name:'CCNP',
+                         author:'LEON'
+                     }
+                 ],
+                 user:{
+                     name:'Lily',
+                     gender:'M',
+                     age:30
+                 }
+            },
+            methods:{
+               
+            },
+            computed:{
+                
+                filterBooks:function() {
+                    return this.books.filter(function (book) {
+                        return book.name.match(/CCNP/);
+                    })
+                    
+                },
+                sortedBooks:function() {
+                    //return this.books.sort(function (a,b) {
+                    //    return a.name.length < b.name.length;
+                    //})
+                    return this.books.sort(sortName);
+                }
+                
+            }
+        });
+/*
+        myapp.books = myapp.books.filter(item => {
+            return item.name.match(/Delphi/);
+        });
+
+Vue.set(myapp.books,4,{
+    name:'Delphi',
+    author:'liugang'
+});
+
+myapp.books.splice(5,1,{
+    name:'VB',
+    author:'Mao'
+})
+*/
+//myapp.books.splice(1);
+function sortName(a,b) {
+    return a.name < b.name;
+}
+
+    </script>
+</html>

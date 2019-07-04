@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战7.1</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+
+           <!--
+         <Card style="width:350px;">
+            <p slot="title">XXX</p>
+            <a href="#" slot="extra">
+                <Icon type="android-close" size="18"></Icon>
+            </a>
+            <div style="height: 100px;"></div>
+            <div>
+                <Row:gutter="16">
+                    <i-col span="17">
+                        
+                    </i-col>
+                    <i-col span="4">
+                       
+                    </i-col>
+                </Row>
+            </div>
+         </Card>
+         -->
+         <my-component></my-component>
+         <my-component></my-component>
+         <my-component></my-component>
+         <!--
+         <table>
+             <tbody is="my-component"></tbody>
+         </table>
+         -->
+       </div> 
+    </body>
+    <script>
+       /* 
+        Vue.component('my-component',{
+            template:'<div>这个是组件内容</div>'
+        });
+        */
+       var data = {
+           counter:0
+       }
+       /*
+        Vue.component('my-component',{
+            template:'<div>{{ message }}</div>',
+            data:function() {
+                return {
+                    message: '组件内容'
+                }
+            }
+        });
+        */
+       Vue.component('my-component',{
+           template:'<button @click="counter++">{{ counter }}</button>',
+           data:function() {
+               //return data;
+               return { counter : 0 }
+           }
+
+       })
+
+        var Child = {
+            template:'<div>这个是局部组件内容</div>'
+        }
+
+        var app = new Vue({
+            el:'#app'
+            /*,
+            components: {
+                'my-component':Child
+            }*/
+        })
+
+    </script>
+</html>

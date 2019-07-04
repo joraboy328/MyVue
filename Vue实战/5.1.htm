@@ -1,19 +1,20 @@
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Vue实战</title>
+        <title>Vue实战5.1</title>
         <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
     </head>
     <body>
-       <div id="app">
-         
+       <div id="app" v-cloak>
+          {{message}}
+          <span v-once>{{message}}</span>
+          <div v-once>{{message}}</div>
        </div> 
     </body>
     <script>
-        var vueapp = new Vue({
+        new Vue({
             el:"#app",
             data:{
-             
+              message:'This is a text'
             },
             methods:{
                

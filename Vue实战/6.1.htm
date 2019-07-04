@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战6.1</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+        <!-- <input type="text" v-model="message" placeholder="Input...">-->
+         <input type="text" @input="handleInput" placeholder="Input...">
+         <P>输入的内容是：{{message}}</P>
+         <textarea v-model="message"></textarea>
+         <p style="white-space: pre">{{ message }}</p>
+       </div> 
+    </body>
+    <script>
+        var vueapp = new Vue({
+            el:"#app",
+            data:{
+                message :''
+                
+            },
+            methods:{
+               
+                handleInput:function(e) {
+                    this.message = e.target.value;
+                }
+            }
+        })
+    </script>
+</html>
