@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         {{message}}
+         <component-a></component-a>
+       </div> 
+    </body>
+    <script>
+        Vue.component('component-a',{
+            template:'<button @click="handleEvent">通过父链直接修改数据</button>',
+            methods:{
+
+                handleEvent:function() {
+                    this.$parent.message = '来自组建component-a的内容';
+
+                }
+            }
+
+
+        })
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:''
+            },
+            methods:{
+               
+            }
+        })
+    </script>
+</html>
