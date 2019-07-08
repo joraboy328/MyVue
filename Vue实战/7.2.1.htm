@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战7.2.1</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         <my-component :width="100"></my-component>
+       </div> 
+    </body>
+    <script>
+        Vue.component('my-component',{
+            props:['width'],
+            template:'<div :style="style">组件内容</div>',
+            data:function() {
+               
+            },
+            computed:{
+                style:function() {
+                    return {
+                        width:this.width + 'px'
+                    }
+                }
+            }
+
+        })
+        var vueapp = new Vue({
+            el:"#app",
+            data:{
+             
+            },
+            methods:{
+               
+            }
+        })
+    </script>
+</html>

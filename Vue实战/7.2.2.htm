@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战7.2.2</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         <my-component></my-component>
+       </div> 
+    </body>
+    <script>
+        Vue.component('my-component',{
+            props:[
+                propA: Number,
+                propB: [String,Number],
+                propC: {
+                    type:Boolean,
+                    default:true
+                },
+                PropD: {
+                    type:Number,
+                    required:true
+                }
+            ],
+            
+            data:function() {
+               
+            }
+
+        })
+        var vueapp = new Vue({
+            el:"#app",
+            data:{
+             
+            },
+            methods:{
+               
+            }
+        })
+    </script>
+</html>
