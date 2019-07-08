@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战7.3.1</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+           <p>Total: {{total1}}</p>
+         
+           </p>
+         <my-component @increase="handleGetTotal"
+                       @reduce="handleGetTotal">
+          </my-component>
+
+          <my-component v-on:click.native="handleGetTotal"></my-component>
+         
+       </div> 
+    </body>
+    <script>
+
+        Vue.component('my-component',{
+            template:'\
+            <div>\
+             <button @click="handleIncrease">+1</button>\
+             <button @click="handleReduce">-1</button>\
+             </div>',
+
+             data:function() {
+                 return {
+                    counter:0,
+                    counter1:0
+                 }
+             },
+             methods : {
+
+                 handleIncrease:function() {
+                     this.counter++;
+                     this.counter1++;
+                     this.$emit('increase',this.counter,this.counter1);
+                     
+                 },
+                 handleReduce:function()  {
+                     this.counter--;
+                     this.$emit('reduce',this.counter);
+                 }
+
+             }
+
+        })
+
+        var vueapp = new Vue({
+            el:"#app",
+            data:{
+                total:0,
+                total1:100
+            },
+            methods:{
+                
+                handleGetTotal:function(total,total1)
+                {
+                    this.total = total;
+                    this.total1 = total1;
+                }
+            }
+        })
+    </script>
+</html>
