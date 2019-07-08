@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战7.3.3</title>
+        <script src="https://cdn.bootcss.com/vue/1.0.28/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+           {{message}}
+         <my-component></my-component>
+       </div> 
+    </body>
+    <script>
+            Vue.component('my-component',{
+                template:'<button @click="handleDispatch">派发事件</button>',
+                methods:{
+                    handleDispatch:function() {
+                        this.$dispatch('on-message','来自内部组建的数据');
+                    }
+                }
+            });
+
+            var app = new Vue({
+                el:'#app',
+                data:{
+                    message:''
+                },
+                events:{
+                    'on-message':function(msg) {
+                        this.message = msg;
+                    }
+                }
+            })
+    </script>
+</html>
