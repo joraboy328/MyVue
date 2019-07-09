@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战7.4.4</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         <child-component>
+            <template scope="props">
+                <p>来自父组件的内容</p>
+                <p>{{props.msg}}</p>
+            </template>
+         </child-component> 
+       </div> 
+    </body>
+    <script>
+        Vue.component('child-component',{
+            template:'\
+                <div class="container">\
+                    <slot msg="来自子组件的内容"></slot> \
+                </div>'
+        });
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+             
+            },
+            methods:{
+               
+            }
+        })
+    </script>
+</html>
