@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="mount-div">
+         
+       </div> 
+    </body>
+    <script>
+        var MyComponent = Vue.extend({
+            template:'<div>Hello:{{ name }} </div>',
+            data:function() {
+                 return {
+                     name:'Aresn'
+                 }
+            }
+        });
+         
+        new MyComponent().$mount('#mount-div');
+        
+        new MyComponent({
+            el:'#mount-div'
+        });
+        
+        
+        var component = new MyComponent().$mount();
+        document.getElementById('mount-div').appendChild(component.$el);
+
+
+    </script>
+</html>
