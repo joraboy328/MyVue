@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         <component :is="currentView"></component>
+         <button @click="handleChangeView('A')">切换A</button>
+         <button @click="handleChangeView('B')">切换B</button>
+         <button @click="handleChangeView('C')">切换C</button>
+       </div> 
+    </body>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            components:{
+                comA:{
+                    template:'<div>组件A</div>'
+                },
+                comB:{
+                    template:'<div>组件B</div>'
+                },
+                comC:{
+                    template:'<div>组件C</div>'
+                }
+            },
+            data:{
+                currentView:'comA'
+            },
+            methods:{
+               handleChangeView:function(component) {
+
+                this.currentView = 'com' + component;
+
+               }
+            }
+        })
+    </script>
+</html>
