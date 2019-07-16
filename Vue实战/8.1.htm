@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战8.1</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         <input type="text" v-focus>
+       </div> 
+    </body>
+    <script>
+        Vue.directive('focus',{
+            inserted:function(el) {
+                el.focus();
+            }
+        })
+        
+        var app = new Vue({
+            el:'#app'
+        })
+    </script>
+</html>
