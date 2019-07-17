@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战9.2</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         <ele :show="show"></ele>
+         <button @click="show =! show">切换 show</button>
+       </div> 
+    </body>
+    <script>
+        Vue.component('ele',{
+            render: function(createElement) {
+                if (this.show) {
+                    return createElement('p','show value is true');
+                }
+                else {
+                    return createElement('p','show value is false');
+                }
+            },
+        props: {
+            show : {
+                type: Boolean,
+                default: false
+            }
+          }
+        });
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+              show :false
+            }
+        })
+    </script>
+</html>
