@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue实战9.7</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+       <div id="app">
+         <ele></ele>
+         <ele>
+             <p>slot的内容</p>
+         </ele>
+       </div> 
+    </body>
+    <script>
+        Vue.component('ele',{
+            render:function(createElement) {
+                if (this.$slots.default === undefined) {
+                    return createElement('div','没有使用slot时显示的文本');
+                } else {
+                    return createElement('div',this.$slots.default);
+                }
+            }
+        });
+        var app = new Vue({
+            el:"#app",
+            data:{
+             
+            },
+            methods:{
+               
+            }
+        })
+    </script>
+</html>
