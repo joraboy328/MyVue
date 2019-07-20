@@ -7,7 +7,7 @@ Vue.component('list',{
 
             }
         }
-    },
+    }, 
     render:function(h){
         
         var _this = this;
@@ -17,7 +17,7 @@ Vue.component('list',{
             var node = h('div',{
                 attrs:{
                     class:'list-item'
-                },
+                }
             
         },
         [
