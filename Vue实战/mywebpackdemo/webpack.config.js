@@ -1,4 +1,6 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
+
 
 var config = {
     entry: {
@@ -8,6 +10,18 @@ var config = {
         path:path.join(__dirname,'./dist'),
         publicPath:'/dist/',
         filename:'main.js'
-    }
+    },
+    module:{
+        rules:[{
+            test:/\.css$/,
+            use:[
+                'style-loader',
+                'css-loader'
+            ]
+        }]
+    },
+    plugins:[
+        new ExtractTextPlugin("main.css")
+    ]
 };
 module.exports = config;
