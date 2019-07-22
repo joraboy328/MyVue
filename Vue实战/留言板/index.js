@@ -21,7 +21,7 @@ var app = new Vue({
         });
         this.message = '';
     },
-    handleReply:function() {
+    handleReply:function(index) {
         var name = this.list[index].name;
         this.message = '回复@' + name +':';
         this.$refs.message.focus();
