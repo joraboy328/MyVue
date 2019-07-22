@@ -31,7 +31,7 @@ var config = {
                exclude:/node_modules/
            },
            {
-               text:/\.css$/,
+               test:/\.css$/,
                use:ExtractTextPlugin.extract({
                    use:'css-loader',
                    fallback:'style-loader'
