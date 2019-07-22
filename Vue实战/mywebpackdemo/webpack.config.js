@@ -27,6 +27,10 @@ var config = {
                }
            },
            {
+               test:/\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+               loader:'url-loader?limit=1024'
+           },
+           {
                test:/\.js$/,
                loader:'babel-loader',
                exclude:/node_modules/
