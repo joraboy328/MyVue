@@ -1,8 +1,17 @@
 <template>
-    <div>首页</div>
+    <div>
+    <h1>首页1</h1>
+    {{ count }}
+    </div>
 </template>
 <script>
  export default {
+
+     computed:{
+         count () {
+             return this.$store.state.count;
+         }
+     }
      
  }
 </script>
